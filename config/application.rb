@@ -27,8 +27,8 @@ module Rareform
 
     # Adding s3 validation
     AWS::S3::Base.establish_connection!(
-        :access_key_id     => 'AKIAJZNXRWN7UITM7XQA',
-        :secret_access_key => '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'
+        :access_key_id     => '', # Add these keys back in when you make new ones. 
+        :secret_access_key => ''
     )
 
     BUCKET='rareform'
