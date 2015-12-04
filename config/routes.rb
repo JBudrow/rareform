@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   get 'songs/index'
-
   get 'songs/upload'
-
   get 'songs/delete'
+
+  root :to => "songs#index"
+  
+  get "upload" => "songs#upload", :as => "upload"
+  get "delete" => "songs#delete", :as => "delete"
+
+  #match "songs/upload", :as => "upload"
+  #match "songs/delete", :as => "delete"
+  #root :to => "songs#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

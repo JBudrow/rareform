@@ -1,2 +1,25 @@
-<h1>Songs#index</h1>
-<p>Find me in app/views/songs/index.html.erb</p>
+<header>rareform
+<!-- <p>Find me in app/views/songs/index.html.erb</p> -->
+</header>
+
+<h2>Upload a new MP3</h2>
+<img src="https://cdn2.vox-cdn.com/thumbor/sGIsOkwzian7M5nJrtc4Y35sClM=/cdn0.vox-cdn.com/uploads/chorus_asset/file/694642/nicolas_cage_breeze.0.gif" alt="Cage being Cage" width="300" height="180">
+<%= form_tag upload_path, :method => "post", :multipart => true do %>
+	<%= file_field_tag "mp3file" %>
+	<%= submit_tag "Upload" %>
+<% end %> 
+
+<h2>Download and Delete Existing MP3's</h2>
+<table>
+	<% @songs.each do |song| %>
+		<tr>
+			<td><%= song.key %></td>
+			<td><%= link_to "Download", download_url_for(song.key) %></td>
+			<td><%= link_to "Delete", "songs/delete/?song=" + song.key, :confirm => 'Are you sure you want to delete ' + song.key + '?' %></td>
+		</tr>
+	<% end %>
+</table>
+
+
+
+
