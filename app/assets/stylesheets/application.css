@@ -35,3 +35,7 @@ body {
 	overflow: hidden;
 }
 
+.spine {
+    display: inline-block;
+    vertical-align: top;
+}

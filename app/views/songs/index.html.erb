@@ -17,21 +17,24 @@
 <header>rareform
 <!-- <p>Find me in app/views/songs/index.html.erb</p> -->
 </header>
-<!-- add artist/track here -->
+
+<div class='spine'>
 	<iframe id="soundcloud_widget"
       src="https://w.soundcloud.com/player/?visual=true&url=http://api.soundcloud.com/tracks/209547828&show_artwork=true"
       width="420"
       height="120"
       frameborder="no"></iframe>
+</div>
 
-<h2>Upload a new MP3</h2>
-<img src="https://s-media-cache-ak0.pinimg.com/originals/97/7e/aa/977eaad30d77ab9716e122a75a10bb3b.gif" alt="Pratt being Pratt" width="300" height="180">
-<%= form_tag upload_path, :method => "post", :multipart => true do %>
-	<%= file_field_tag "mp3file" %>
-	<%= submit_tag "Upload" %>
-<% end %>
+<div class='spine' style='float: right'>
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/97/7e/aa/977eaad30d77ab9716e122a75a10bb3b.gif" alt="Pratt being Pratt" width="300" height="180">
+    <%= form_tag upload_path, :method => "post", :multipart => true do %>
+    	<%= file_field_tag "mp3file" %>
+    	<%= submit_tag "Upload" %>
+    <% end %>
+</div>
 
-<h2>Download and Delete Existing MP3's</h2>
+<h2>Hot Ass Metal Tracks</h2>
 <table>
 	<% @tracks.each do |track| %>
 		<tr>
