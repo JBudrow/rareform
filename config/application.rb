@@ -32,6 +32,6 @@ module Rareform
     )
 
     ENV['BUCKET'] ='rareform'
+    ENV['SOUNDCLOUD_CLIENT_ID'] = '3ee351e7ff8a40cc7558c785b58b91e1'
   end
 end
-

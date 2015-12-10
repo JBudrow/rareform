@@ -3,7 +3,14 @@ class SongsController < ApplicationController
   #include AWS::S3
 
   def index
-  	@songs = AWS::S3::Bucket.find(ENV['BUCKET']).objects
+  	#@songs = AWS::S3::Bucket.find(ENV['BUCKET']).objects
+    sc_client = SoundCloud.new( :client_id => '3ee351e7ff8a40cc7558c785b58b91e1' )
+    @tracks = sc_client.get( '/tracks', :limit => 10, :genres => 'djent', :order => 'hotness' )
+
+    @song_comments = []
+    @tracks.each do |track|
+        @song_comments << sc_client.get( "/tracks/#{track.id}/comments", :limit => 1 )
+    end
   end
 
   def upload
