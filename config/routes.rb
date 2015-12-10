@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'songs/delete'
 
   root :to => "songs#index"
-  
-  get "upload" => "songs#upload", :as => "upload"
+
+  post "upload" => "songs#upload", :as => "upload"
   get "delete" => "songs#delete", :as => "delete"
 
   #match "songs/upload", :as => "upload"

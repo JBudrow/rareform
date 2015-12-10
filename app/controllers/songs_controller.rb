@@ -17,7 +17,7 @@ class SongsController < ApplicationController
 
   def delete
   	if (params[:song])
-  		AWS::S3::S3Object.find(params[:song], BUCKET).delete
+  		AWS::S3::S3Object.find(params[:song], ENV['BUCKET']).delete
   		redirect_to root_path
   	else
   		render :text => "No song was found to delete!"
